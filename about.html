@@ -7,6 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="about.css">
+    <style>
+        /* Ensuring the menu toggle is functional even if styles.css is loading slowly */
+        @media screen and (max-width: 768px) {
+            .nav-container.active {
+                display: flex !important;
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="main-header">
@@ -24,7 +33,7 @@
             <a href="enrollment.html" class="nav-link">Enrollment</a>
             <a href="contact.html" class="nav-link">Contact</a>
         </div>
-        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <button class="mobile-menu-toggle" aria-label="Toggle menu" id="menuToggle">
             <span></span>
             <span></span>
             <span></span>
@@ -38,7 +47,6 @@
         </div>
     </section>
 
-    <!-- Message from Founder -->
     <section class="story-section">
         <div class="container">
             <div class="story-content" style="grid-template-columns: 1fr; max-width: 900px; margin: 0 auto;">
@@ -60,7 +68,6 @@
         </div>
     </section>
 
-    <!-- Educational Approach -->
     <section class="approach-section">
         <div class="container">
             <div class="section-header">
@@ -96,7 +103,6 @@
         </div>
     </section>
 
-    <!-- Meet Our Leadership -->
     <section class="team-section">
         <div class="container">
             <div class="section-header">
@@ -116,7 +122,6 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
@@ -172,6 +177,13 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Simple Mobile Menu Toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const nav = document.querySelector('.nav-container');
+            nav.classList.toggle('active');
+            this.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
