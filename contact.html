@@ -7,6 +7,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="contact.css">
+    <style>
+        /* Mobile Navigation Fix */
+        @media screen and (max-width: 768px) {
+            .nav-container.active {
+                display: flex !important;
+                flex-direction: column;
+            }
+        }
+        
+        /* Map Section Styling */
+        .map-container {
+            margin-top: 30px;
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .map-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <header class="main-header">
@@ -24,7 +48,7 @@
             <a href="enrollment.html" class="nav-link">Enrollment</a>
             <a href="contact.html" class="nav-link active">Contact</a>
         </div>
-        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <button class="mobile-menu-toggle" aria-label="Toggle menu" id="menuToggle">
             <span></span>
             <span></span>
             <span></span>
@@ -33,192 +57,50 @@
 
     <section class="page-hero">
         <div class="container">
-            <h1>Get In Touch</h1>
-            <p>We'd love to hear from you and answer any questions you may have</p>
+            <h1>Contact Us</h1>
+            <p>Get in touch and find your way to our center</p>
         </div>
     </section>
 
-    <section class="contact-section">
+    <section class="contact-info-section">
         <div class="container">
-            <div class="contact-grid">
-                <!-- Contact Form -->
-                <div class="contact-form-wrapper">
-                    <h2>Schedule a Tour or Ask a Question</h2>
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="childName">Child's Name</label>
-                            <input type="text" id="childName" name="childName">
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="childAge">Child's Age</label>
-                                <select id="childAge" name="childAge">
-                                    <option value="">Select age</option>
-                                    <option value="2">2 years old</option>
-                                    <option value="3">3 years old</option>
-                                    <option value="4">4 years old</option>
-                                    <option value="5">5 years old</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="inquiryType">I'm interested in:</label>
-                                <select id="inquiryType" name="inquiryType">
-                                    <option value="">Select one</option>
-                                    <option value="tour">Scheduling a tour</option>
-                                    <option value="enrollment">Enrollment information</option>
-                                    <option value="programs">Program details</option>
-                                    <option value="general">General question</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="preferredContact">Preferred Contact Method</label>
-                            <div class="radio-group">
-                                <label class="radio-label">
-                                    <input type="radio" name="preferredContact" value="email" checked>
-                                    <span>Email</span>
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="preferredContact" value="phone">
-                                    <span>Phone</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="cta-btn">Send Message</button>
-                    </form>
-
-                    <div class="form-success" id="formSuccess">
-                        <div class="success-icon">✓</div>
-                        <h3>Thank You!</h3>
-                        <p>We've received your message and will get back to you within 24 hours.</p>
+            <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+                <div class="contact-details">
+                    <h2>Find Us</h2>
+                    <ul style="list-style: none; padding: 0; line-height: 2;">
+                        <li>📍 <strong>Address:</strong> Los Angeles, CA</li>
+                        <li>📞 <strong>Phone:</strong> (310) 677-2771</li>
+                        <li>✉️ <strong>Email:</strong> info@fromtheheart.edu</li>
+                        <li>🕐 <strong>Hours:</strong> Mon-Fri: 7:30 AM - 6:00 PM</li>
+                    </ul>
+                    
+                    <div class="map-container">
+                        <img src="FTH Map.jpg" alt="Map to From The Heart Preschool" class="map-image">
                     </div>
                 </div>
 
-                <!-- Contact Information -->
-                <div class="contact-info">
-                    <div class="info-card">
-                        <div class="info-icon">📍</div>
-                        <h3>Visit Us</h3>
-                        <p>123 Learning Lane<br>Los Angeles, CA 90001</p>
-                    </div>
-
-                    <div class="info-card">
-                        <div class="info-icon">📞</div>
-                        <h3>Call Us</h3>
-                        <p><a href="tel:5551234567">(555) 123-4567</a><br>
-                        Mon-Fri: 7:00 AM - 6:00 PM</p>
-                    </div>
-
-                    <div class="info-card">
-                        <div class="info-icon">✉️</div>
-                        <h3>Email Us</h3>
-                        <p><a href="mailto:info@fromtheheart.edu">info@fromtheheart.edu</a><br>
-                        We respond within 24 hours</p>
-                    </div>
-
-                    <div class="info-card">
-                        <div class="info-icon">🕐</div>
-                        <h3>Operating Hours</h3>
-                        <p><strong>Monday - Friday</strong><br>
-                        7:00 AM - 6:00 PM<br><br>
-                        <strong>Saturday - Sunday</strong><br>
-                        Closed</p>
-                    </div>
-
-                    <div class="info-card cta-card">
-                        <h3>Ready to Visit?</h3>
-                        <p>Tours are available Monday through Friday. Call us to schedule your visit!</p>
-                        <a href="tel:5551234567" class="btn-secondary">Call to Schedule</a>
-                    </div>
+                <div class="contact-form-area">
+                    <h2>Send a Message</h2>
+                    <p>Have questions? Fill out our interest form and we'll get back to you soon.</p>
+                    <a href="#" class="cta-btn" style="display:inline-block; margin-top: 15px; padding: 12px 25px; background: #6a5acd; color: white; text-decoration: none; border-radius: 25px;">Open Interest Form</a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Map Section -->
-    <section class="map-section">
-        <div class="container">
-            <h2>Find Us</h2>
-            <div class="map-placeholder">
-                <p>🗺️ Interactive map would be embedded here<br>
-                <small>123 Learning Lane, Los Angeles, CA 90001</small></p>
-                <p class="map-note">We're conveniently located in the heart of Los Angeles, easily accessible from major highways.</p>
             </div>
         </div>
     </section>
 
     <footer class="main-footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <img src="logo.png" alt="From The Heart Preschool" class="footer-logo">
-                <p>Where every child is nurtured, celebrated, and inspired to reach their full potential.</p>
-            </div>
-
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="programs.html">Our Programs</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="enrollment.html">Enrollment</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <ul>
-                    <li>📍 Los Angeles, CA</li>
-                    <li>📞 (555) 123-4567</li>
-                    <li>✉️ info@fromtheheart.edu</li>
-                    <li>🕐 Mon-Fri: 7:00 AM - 6:00 PM</li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                <div class="social-links">
-                    <a href="#" class="social-icon" aria-label="Facebook">f</a>
-                    <a href="#" class="social-icon" aria-label="Instagram">📷</a>
-                    <a href="#" class="social-icon" aria-label="Twitter">🐦</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
+        <div class="footer-bottom" style="text-align: center; padding: 20px;">
             <p>&copy; 2026 From The Heart Preschool & Enrichment Center. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="contact.js"></script>
+    <script>
+        // Mobile Menu Toggle Logic
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const nav = document.querySelector('.nav-container');
+            nav.classList.toggle('active');
+            this.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
