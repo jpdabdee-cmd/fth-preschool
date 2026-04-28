@@ -1,0 +1,318 @@
+/* ==========================================
+   GALLERY PAGE STYLES
+   ========================================== */
+
+.gallery-filter-section {
+    padding: 3rem 0;
+    background: var(--white);
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--purple);
+    background: transparent;
+    color: var(--purple);
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: var(--purple-light);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: var(--purple);
+    color: var(--white);
+}
+
+/* Gallery Grid */
+.gallery-section {
+    padding: 4rem 0 6rem;
+    background: var(--cream);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.gallery-item {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.4s ease;
+}
+
+.gallery-item.hide {
+    opacity: 0;
+    transform: scale(0.8);
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Gallery Images */
+.gallery-img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.gallery-placeholder {
+    width: 100%;
+    height: 320px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.2) 0%,
+        rgba(0,0,0,0.1) 100%
+    );
+}
+
+.gallery-placeholder:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.gallery-placeholder span {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+}
+
+.gallery-placeholder p {
+    font-family: 'Fredoka', sans-serif;
+    color: var(--white);
+    font-size: 1.4rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Gallery Placeholder Backgrounds */
+.purple-bg {
+    background: linear-gradient(135deg, var(--purple-light), var(--purple));
+}
+
+.red-bg {
+    background: linear-gradient(135deg, var(--red-light), var(--red));
+}
+
+.yellow-bg {
+    background: linear-gradient(135deg, var(--yellow), var(--yellow-dark));
+}
+
+.green-bg {
+    background: linear-gradient(135deg, #66bb6a, #43a047);
+}
+
+.blue-bg {
+    background: linear-gradient(135deg, #42a5f5, #1976d2);
+}
+
+/* Gallery Caption */
+.gallery-caption {
+    padding: 1.5rem 0.5rem 0;
+}
+
+.gallery-caption h4 {
+    color: var(--purple);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.gallery-caption span {
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+/* Video Tour Section */
+.video-section {
+    padding: 5rem 0;
+    background: var(--white);
+}
+
+.video-placeholder {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 6rem 4rem;
+    background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.video-placeholder::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(255,255,255,0.1) 0%,
+        transparent 70%
+    );
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.video-placeholder span {
+    font-size: 5rem;
+    display: block;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+
+.video-placeholder h3 {
+    color: var(--white);
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.video-placeholder p {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.play-btn {
+    padding: 1.2rem 3rem;
+    background: var(--red);
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 0 var(--red-dark), var(--shadow-md);
+    transition: all 0.2s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.play-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 0 var(--red-dark), var(--shadow-lg);
+}
+
+.play-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--red-dark), var(--shadow-sm);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+    
+    .filter-buttons {
+        padding: 0 1rem;
+    }
+    
+    .filter-btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .gallery-placeholder {
+        height: 280px;
+    }
+    
+    .video-placeholder {
+        padding: 4rem 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-placeholder {
+        height: 250px;
+    }
+    
+    .gallery-placeholder span {
+        font-size: 4rem;
+    }
+    
+    .filter-buttons {
+        gap: 0.5rem;
+    }
+    
+    .filter-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+    
+    .video-placeholder {
+        padding: 3rem 1.5rem;
+    }
+    
+    .video-placeholder span {
+        font-size: 3.5rem;
+    }
+    
+    .video-placeholder h3 {
+        font-size: 1.8rem;
+    }
+}
